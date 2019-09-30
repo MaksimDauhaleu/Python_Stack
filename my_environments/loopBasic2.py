@@ -101,4 +101,12 @@ def ultanalist(arr):
 
 print(ultanalist([3, 44, 5, 6, -5, 6]))
 
+def reveselist(arr):
+    for i in range(0, int(len(arr) / 2)):
+        temp = arr[i]
+        arr[i] = arr[len(arr) - i - 1]
+        arr[len(arr) - 1] = temp
+    return arr
 
+
+print(reveselist([1, 3, 3, 6, 2, 1]))
