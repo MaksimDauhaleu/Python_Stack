@@ -22,7 +22,7 @@ class User:
 
 Dennis = User("Dennis Lloyd", "dennislloyd@gmail.com")
 Maksim = User("Maksim Dauhaleu", "maksimdauhaleu@gmail.com")
-Maksim.make_deposit(200).make_deposit(200).make_deposit(3000).zelle_pay(Dennis, 1000)
+Maksim.make_deposit(200).make_deposit(200).make_deposit(3000).zelle_pay(Dennis, 2000)
 
 
 print(Maksim.name, ", Balance - ", Maksim.account_balance, "$")
