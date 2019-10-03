@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .red{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            display: inline-block;
+        }
+        .black{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div >
+        {% for i in range(8) %}
+            <div>
+                {% if i%2 == 0%}
+                    {% for j in range(4,x) %}
+                        {% if j%2 == 0 %}
+                            <div class="red"></div>
+                        {% else %}
+                            <div class="black"></div>
+                        {% endif%}
+                    {% endfor %}
+                {% else %}
+                    {% for j in range(4,x) %}
+                        {% if j%2 == 0 %}
+                            <div class="black"></div>
+                        {% else %}
+                            <div class="red"></div>
+                        {% endif%}
+                    {% endfor %}
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
+
+
+<div id="block">
+    
+</div>
