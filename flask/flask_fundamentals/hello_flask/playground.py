@@ -11,7 +11,17 @@ def hello_world():
 def hello_person():
     print("*"*80)
     print("In the person function")
+    print
     return render_template('playground1.html')
+
+
+@app.route("/play/<times>/<color>")
+def block_times(times, color):
+    print("*"*80)
+    print("In the person function")
+    print(times)
+    return render_template('playground1.html', num_times = int(times), block_color = color)
+
 
 
 if __name__=="__main__":

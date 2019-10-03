@@ -9,13 +9,15 @@ body {
   
 h1 {
     color: navy;
-    margin-left: 20px;
+    padding-left: 520px;
+    margin-bottom: 70px;
+    margin-top: 40px
 }
 .block{
-    background-color: blue;
-    width: 170px;
-    height: 170px;
-    margin: 80px;
+    background-color: {{block_color}};
+    width: 200px;
+    height: 200px;
+    margin: 20px;
     display: inline-block;
 }
 
@@ -23,11 +25,13 @@ h1 {
 </head>
 <body>
 
-<h1>This is a heading</h1>
-<p>The style of this document is a combination of an external stylesheet, and internal style</p>
-<div class="block"></div>
-<div class="block"></div>
-<div class="block"></div>
+<h1>WELCOME</h1>
+
+
+{% for i in range(0, num_times) %}
+    <div class="block"></div>
+{% endfor %}
+
 
 </body>
 </html>
