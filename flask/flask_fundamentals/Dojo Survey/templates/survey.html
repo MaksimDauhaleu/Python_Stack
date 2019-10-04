@@ -30,6 +30,18 @@
         width: 500px;
         height: 200px;
     }
+    select{
+        width: 150px;
+        height: 30px;
+        background-color: pink;
+    }
+    #l_d{
+        padding-top: 40px;
+    }
+    input{
+        background-color: pink;
+        border: none;
+    }
     </style>
 </head>
 <body>
@@ -38,8 +50,24 @@
         <h3>Create a User</h3>
             <form action='/users' method='post'>
             <p>Your name: <input type='text' name='name'></p>
-            <p>DoJo locations: <input type='text' name='locations'></p>
-            <p>Favotite Language: <input type='text' name='language'></p>
+            <div>
+               <label>DoJo locations:</label>
+                <select type='text' name='locations'>
+                    <option value="San Jose">San Jose</option>
+                    <option value="Oakland">Oakland</option>
+                    <option value="Denver">Denver</option>
+                    <option value="Seattle">Seattle</option>
+                </select>
+            </div>
+            <div id="l_d">
+                    <label>Favorite language:</label>
+                     <select type='text' name='language'>
+                         <option value="Python">Python</option>
+                         <option value="JavaScript">JavaScript</option>
+                         <option value="Objective">Objective</option>
+                         <option value="C++">C++</option>
+                     </select>
+                 </div>
             <div id="com"><p>Comment(Optional): <input id="Commit" type='text' name='comments'></p>
             </div>
             <input id ="buttom"type='submit' value='Create'>
