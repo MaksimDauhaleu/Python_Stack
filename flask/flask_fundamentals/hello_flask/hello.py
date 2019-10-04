@@ -15,11 +15,17 @@ def hello_person(name, times):
     return render_template('name.html', some_name=name, num_times=int(times))
 
 
-if __name__=="__main__":
+
+@app.route('/gage')
+def render_lists():
+    student_info = [
+       {'name': 'Michael', 'age': 35},
+       {'name': 'John', 'age': 30},
+       {'name': 'Mark', 'age': 25},
+       {'name': 'KB', 'age': 27}
+    ]
+    return render_template("lists.html", random_numbers=[3, 1, 5], students=student_info)
+
+
+if __name__ == "__main__":
     app.run(debug=True)
-
-
-var = (1, 2, 3, 4)
-
-
-
