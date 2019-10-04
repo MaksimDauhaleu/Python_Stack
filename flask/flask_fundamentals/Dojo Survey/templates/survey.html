@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body{
+        font-size: 250%;
+        background-color: lightsalmon;
+    }
+    #container{
+        padding-left: 650px;
+    }
+    #buttom{
+        color: black;
+        background-color: pink;
+        width: 400px;
+        height: 50px;
+        font-size:100%;
+    }
+    #Commit{
+        width: 500px;
+        height: 100px;
+        position:relative;
+        margin-top: 10px;
+    }
+    #com{
+        width: 500px;
+        height: 200px;
+    }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>DoJo Survey</h1>
+        <h3>Create a User</h3>
+            <form action='/users' method='post'>
+            <p>Your name: <input type='text' name='name'></p>
+            <p>DoJo locations: <input type='text' name='locations'></p>
+            <p>Favotite Language: <input type='text' name='language'></p>
+            <div id="com"><p>Comment(Optional): <input id="Commit" type='text' name='comments'></p>
+            </div>
+            <input id ="buttom"type='submit' value='Create'>
+        </form>
+    </div>
+</body>
+</html>
