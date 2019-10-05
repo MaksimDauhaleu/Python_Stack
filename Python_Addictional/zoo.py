@@ -13,6 +13,7 @@ def Feed(self):
     self.health += 20
     self.happiness += 20
 
+
 class Lion(Animal):
     pass
 
