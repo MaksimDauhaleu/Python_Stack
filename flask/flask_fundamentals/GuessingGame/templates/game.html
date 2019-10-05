@@ -30,11 +30,13 @@
         </div>
     </div>
     <div class="kkk">
-        <input type="text" class="form-control" name="number" placeholder="" value="">
+        <form action="/getNumb" method='POST'>
+            <input type="text" class="form-control" name="guess" placeholder="" value="">
+        </form>
     </div>
-    <h1>{{ number }}</h1>
     <div>
-        <button id="b1">SUBMIT</button>
+        <form action="/" method='POST'>
+        <button action="/" name="guess" id="b1">SUBMIT</button>
 
     </div>
 </div>
