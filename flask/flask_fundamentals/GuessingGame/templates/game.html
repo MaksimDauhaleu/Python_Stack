@@ -4,8 +4,42 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Game</title>
+  <style>
+  .kkk{
+    width: 150px;
+    margin-left: 480px;
+    margin-top: 100px;
+    border:3px solid black;
+    border-radius: 10px;
+  }
+  #b1{
+      margin-left: 495px;
+      margin-top: 20px;
+      width: 120px;
+      height: 35px;
+  }
+  </style>
 </head>
 <body>
-    <h1>Hello</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h1 class="display-3">Wellcom to the Great Number Game!</h1>
+            <h2>I'm thinking of a number between 1-100</h2>
+            <h2 class="display-4">Take a guess!</h2>
+        </div>
+    </div>
+    <div class="kkk">
+        <input type="text" class="form-control" name="number" placeholder="" value="">
+    </div>
+    <h1>{{ number }}</h1>
+    <div>
+        <button id="b1">SUBMIT</button>
+
+    </div>
+</div>
+  
+</body>
+
 </body>
 </html>

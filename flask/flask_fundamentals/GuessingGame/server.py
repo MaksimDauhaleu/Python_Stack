@@ -3,9 +3,13 @@ app = Flask(__name__)
 app.secret_key= "maks99080403"
 
 
-@app.route('/')
+@app.route('/', methods=['POST'])
 def main():
-    return render_template("game.html")
+    number = request.form['number']
+    
+
+    return render_template("game.html", number=number)
+
 
 
 
