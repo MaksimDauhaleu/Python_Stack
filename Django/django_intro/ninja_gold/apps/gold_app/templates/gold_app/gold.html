@@ -3,8 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <title>Ninja Gold</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+    body{
+        background-color: lightslategray;
+    }
+    .form{
+        display: inline-block;
+        width: 250px;
+        height: 250px;
+        border: 5px solid black;
+        margin-left: 30px;
+        vertical-align: top;
+    }
+    #forms{
+        padding-top: 70px;
+        width: 1500px;
+        
+    }
+    #gold{
+        margin-top: 20px;
+    }
+    #activities{
+        width: 1104px;
+        margin-left: 30px;
+        height: 150px;
+        border: 5px solid black;
+    }
+    #ptag{
+        margin-bottom: 0px;
+        margin-left: 30px;
+        margin-top: 50px;
+    }
+    .h2tag{
+        text-align: center;
+        vertical-align: middle;
+        margin-top: 10px;
+    }
+    #money{
+        background-color: lightslategray;
+        border: 3px solid black;
+    }
+    .earnings{
+        padding-left: 50px;
+        padding-top: 10px;
+    }
+    .earnings1{
+        padding-left: 30px;
+        padding-top: 10px;
+    }
+    .sumbin_b{
+        margin-left: 70px;
+        margin-top: 60px;
+        width: 100px;
+        height: 35px;
+        background-color: lightslategray;
+        border: 3px solid black;
+        border-radius:5px; 
+    }
+    </style>
 </head>
 <body>
-    <h1>hel</h1>
+    <div class="container">
+
+        <div id="gold">
+            <h3>Your Gold: <input id="money" name="gold_amount" type="text" type="hidden"></h3>
+        </div>
+
+        <div id="forms">
+            <div class="form"><h2 class="h2tag" >Farm</h2><p class="earnings" >(earns 10-20 golds)</p>
+                <form action="">
+                    <input class="sumbin_b" type="submit" value="Find Gold!" ></div>
+                </form>
+            <div class="form"><h2 class="h2tag" >Cave</h2><p class="earnings" >(earns 5-10 golds)</p>
+                <form action="">
+                    <input class="sumbin_b" type="submit" value="Find Gold!"></div>
+                </form>
+            <div class="form"><h2 class="h2tag" >House</h2><p class="earnings" >(earns 2-5 golds)</p>
+                <form action="">
+                    <input class="sumbin_b" type="submit" value="Find Gold!" ></div>
+                </form>
+            <div class="form"><h2 class="h2tag" >Casino</h2><p class="earnings1" >(earns/takes 0-50 golds)</p>
+                <form action="">
+                    <input class="sumbin_b" type="submit" value="Find Gold!" ></div>
+                </form>
+        </div>
+
+        <p id="ptag">Activities:</p>
+        <div id="activities">
+
+        </div>
+    </div>
 </body>
 </html>

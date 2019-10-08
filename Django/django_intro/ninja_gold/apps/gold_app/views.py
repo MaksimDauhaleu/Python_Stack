@@ -4,3 +4,4 @@ def gold(request):
     return render(request, 'gold_app/gold.html')
 
 
+def 
