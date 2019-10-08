@@ -1,3 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
-# Create your views here.
+def gold(request):
+    return render(request, 'gold_app/gold.html')
+
+
