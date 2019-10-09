@@ -67,13 +67,13 @@
     <div class="container">
 
         <div id="gold">
-            <h3>Your Gold: <input id="money" name="gold_amount" type="text" type="hidden"></h3>
+            <h3>Your Gold: <input id="money" name="gold_amount" type="text" readonly value="{{ request.session.gold }}"></h3>
         </div>
 
         <div id="forms">
             <div class="form"><h2 class="h2tag" >Farm</h2><p class="earnings" >(earns 10-20 golds)</p>
                 <form action="">
-                    <input class="sumbin_b" type="submit" value="Find Gold!" ></div>
+                    <input class="sumbin_b" name="name" type="submit" value="Find Gold!" ></div>
                 </form>
             <div class="form"><h2 class="h2tag" >Cave</h2><p class="earnings" >(earns 5-10 golds)</p>
                 <form action="">
