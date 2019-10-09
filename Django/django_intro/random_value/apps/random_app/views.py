@@ -27,3 +27,4 @@ def reset(request):
     request.session.clear()
     return redirect("/")
 
+c

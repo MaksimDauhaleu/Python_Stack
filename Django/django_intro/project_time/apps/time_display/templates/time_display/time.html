@@ -8,6 +8,8 @@
 </head>
 <body>
     <h2>Current Time and Date</h2>
-    <h1>{{time}}</h1>
+    {% for time in times %}
+    <h1>{{ time }}</h1>
+    {% endfor %}
 </body>
 </html>

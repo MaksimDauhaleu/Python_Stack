@@ -72,20 +72,24 @@
 
         <div id="forms">
             <div class="form"><h2 class="h2tag" >Farm</h2><p class="earnings" >(earns 10-20 golds)</p>
-                <form action="">
-                    <input class="sumbin_b" name="name" type="submit" value="Find Gold!" ></div>
+                <form action="/process", method="POST">
+                    {% csrf_token %}
+                    <input class="sumbin_b" name="farm" type="submit" value="Find Gold!" ></div>
                 </form>
             <div class="form"><h2 class="h2tag" >Cave</h2><p class="earnings" >(earns 5-10 golds)</p>
-                <form action="">
-                    <input class="sumbin_b" type="submit" value="Find Gold!"></div>
+                <form action="/process", method="POST">
+                    {% csrf_token %}
+                    <input class="sumbin_b" name="cave" type="submit" value="Find Gold!"></div>
                 </form>
             <div class="form"><h2 class="h2tag" >House</h2><p class="earnings" >(earns 2-5 golds)</p>
-                <form action="">
-                    <input class="sumbin_b" type="submit" value="Find Gold!" ></div>
+                <form action="/process", method="POST">
+                    {% csrf_token %}
+                    <input class="sumbin_b" name="house" type="submit" value="Find Gold!" ></div>
                 </form>
             <div class="form"><h2 class="h2tag" >Casino</h2><p class="earnings1" >(earns/takes 0-50 golds)</p>
-                <form action="">
-                    <input class="sumbin_b" type="submit" value="Find Gold!" ></div>
+                <form action="/process", method="POST">
+                    {% csrf_token %}
+                    <input class="sumbin_b" name="casino" type="submit" value="Find Gold!" ></div>
                 </form>
         </div>
 
