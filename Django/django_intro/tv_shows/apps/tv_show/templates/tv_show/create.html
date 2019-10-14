@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Create</title>
+    <style>
+    *{
+        margin:0px;
+        padding:0px;
+    }
+    .wrapper{
+        padding-top:150px;
+    }
+    input, h1{
+        margin-bottom: 50px;
+    }
+    #maksim{
+        padding: 20px;
+    }
+    </style>
+</head>
+<body>
+    <div class="container col-12" align='center'>
+        <div class="wrapper col-4">
+            <div align='left' id=maksim>
+                <form action='/show' method='POST'>
+                    {% csrf_token %}
+                    <h1>Add a New Show</h1>
+                    <label>Title:</label>
+                    <input type='text' class='d-block'>
+                    <label>Network:</label>
+                    <input type='text'>
+                    <label>Release Date:</label>
+                    <input type='date'>
+                    <label class='d-block'>Description:</label>
+                    <input type='textarea' class='d-block'>
+                    <button type="submit" name="create_b" class="btn btn-danger">Create</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
