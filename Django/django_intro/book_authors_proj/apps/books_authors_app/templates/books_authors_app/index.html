@@ -13,23 +13,29 @@
     font-size: 150%;
     position: relative;
     top: -350px;
+    font-style: italic;
 }
 .container{
     display: inline-block;
+    font-style: italic;
 }
 #disc{
     height: 100px;
     vertical-align: top;
     border: 3px solid black;
+    font-style: italic;
 }
 #disc1{
     border: 3px solid black;
+    font-style: italic;
 }
 #add_book{
     padding: 100px;
+    font-style: italic;
 }
 #buttom1{
     margin-left: 158px;
+    font-style: italic;
     width: 100px;
     height: 30px;
     font-weight: bolder;
@@ -43,37 +49,23 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>TITLE</th>
+                    <th>ID: {{ spotlight.id }}</th>
+                    <th>TITLE: </th>
                     <th>ACTION</th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>C#</td>
-                    <td><a href="/apps/books_authors_app/templates/books_authors_app/index.html">View</a></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Java</td>
-                    <td><a href="/apps/books_authors_app/templates/books_authors_app/index.html">View</a></td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Python</td>
-                    <td><a href="/apps/books_authors_app/templates/books_authors_app/index.html">View</a></td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>PHP</td>
-                    <td><a href="/apps/books_authors_app/templates/books_authors_app/index.html">View</a></td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>RUBY</td>
-                    <td><a href="/apps/books_authors_app/templates/books_authors_app/index.html">View</a></td>
-                </tr>
+                    {% for book in library %}
+                    <tr>
+                        <td>{{ book.id }}</td>
+                        <td>{{ book.title }}</td>
+                        <td>{{ book.desc }}</td>
+                        <td>{{ book.authors.all }}</td>
+                        <td><a href='/book_info/{{book.id}}' name='views'value={{book.id}}>View</a></td>
+                    </tr>
+                    {% endfor %}
             </tbody>
         
 
