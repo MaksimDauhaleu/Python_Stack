@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+{% load static %}
 <title>Book/Authors</title>
 <style>
 .table{
@@ -42,6 +43,7 @@
     font-size: 120%;
     border: 3px solid black;
 }
+
 </style>
 </head>
 <body>
@@ -77,5 +79,6 @@
         </div>
         </table>
     </div>
+    <img src="{% static 'books_authors_app/images/books10.jpeg' %}"/>
 </body>
 </html>

@@ -1,0 +1,39 @@
+python3 manage.py shell
+from apps.dojo_ninjas_app.models import *
+
+Dojo.objects.create(name='Coding_dojo',  city='Oakland', state = 'CA')
+Dojo.objects.create(name='Karate_dojo',  city='Seattle', state = 'CA')
+Dojo.objects.create(name='Mojo_dojo',  city='New York', state = 'NY')
+
+Coding_update = Dojo.objects.get(id=1)
+Coding_update.delete()
+Karate_update = Dojo.objects.get(id=2)
+Karate_update.delete()
+Mojo_update = Dojo.objects.get(id=3)
+Mojo_update.delete()
+
+Dojo.objects.create(name='Coding_dojo',  city='Oakland', state = 'CA')
+Dojo.objects.create(name='Karate_dojo',  city='Seattle', state = 'CA')
+Dojo.objects.create(name='Mojo_dojo',  city='New York', state = 'NY')
+
+Maksim = Ninja.objects.create(first_name='Maksim', last_name='Pancakes', dojo=coding)
+Maksim3 = Ninja.objects.create(first_name='Maksim3', last_name='Pancakes3', dojo=coding)
+Maksim2 = Ninja.objects.create(first_name='Maksim2', last_name='Pancakes2', dojo=coding)
+
+Nora = Ninja.objects.create(first_name='Nora',last_name='Waffles',dojo=karate)
+Nora2 = Ninja.objects.create(first_name='Nora2',last_name='Waffles2',dojo=karate)
+Nora3 = Ninja.objects.create(first_name='Nora3',last_name='Waffles3',dojo=karate)
+
+Adrian=Ninja.objects.create(first_name='Adrian',last_name='Eggs',dojo=mojo)
+Adrian2=Ninja.objects.create(first_name='Adrian2',last_name='Eggs2',dojo=mojo)
+Adrian3=Ninja.objects.create(first_name='Adrian3',last_name='Eggs3',dojo=mojo)
+
+Ninja.objects.filter(dojo=Dojo.objects.first())
+
+Ninja.objects.filter(dojo=Dojo.objects.last())
+
+Ninja.objects.last()
+
+Dojo.objects.all()
+
+rojo = Dojo.objects.create(name='Rojo', city='Boise', state='IO', desc='new dojo')

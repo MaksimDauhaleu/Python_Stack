@@ -1,0 +1,51 @@
+csharp = Book.objects.create(title='Csharp',desc='csharp coding')
+java=Book.objects.create(title='Java',desc='java coding')
+python=Book.objects.create(title='Python',desc='python coding')
+php=Book.objects.create(title='Ruby',desc='ruby coding')
+ruby=Book.objects.create(title='php',desc='wrongbook')
+
+jane=Author.objects.create(first_name='Jane',last_name='Austen')
+emily=Author.objects.create(first_name='Emily',last_name='Dickinson')
+fyodor=Author.objects.create(first_name='Fyodor',last_name='Dostoevksy')
+william=Author.objects.create(first_name='William',last_name='Shakespeare')
+lau=Author.objects.create(first_name='Lau',last_name='Tzu')
+
+python manage.py makemigrations
+'Empty'
+python manage.py migrate
+
+csharp = Book.objects.get(id=1)
+csharp.title = 'C#'
+csharp.save()
+
+bill = Author.objects.get(id=4)
+bill.first_name='Bill'
+bill.save()
+
+csharp.authors.add(jane)
+java.authors.add(jane)
+
+csharp.authors.add(emily)
+java.authors.add(emily)
+python.authors.add(emily)
+
+csharp.authors.add(fyodor)
+java.authors.add(fyodor)
+python.authors.add(fyodor)
+php.authors.add(fyodor)
+
+csharp.authors.add(william)
+java.authors.add(william)
+python.authors.add(william)
+php.authors.add(william)
+ruby.authors.add(william)
+
+python.authors.all()
+
+python.authors.remove(emily)
+
+java.authors.add(lau)
+
+fyodor.books.all().values()
+
+ruby.authors.all()

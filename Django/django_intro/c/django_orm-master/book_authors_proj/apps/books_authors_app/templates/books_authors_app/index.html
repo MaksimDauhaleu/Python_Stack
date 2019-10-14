@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Grenze&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin:0px;
+        padding:0px;
+    }
+    .col-5, .col-6{
+        display: inline-block;
+        vertical-align: top;
+        
+    }
+    .container{
+        padding-top:50px;
+        font-family: 'Grenze', serif;
+    }
+    h1{
+        padding:50px;
+        margin-bottom: 20px;
+        width:90%;
+    }
+    label, input, textarea, h4{
+        margin-bottom: 50px;
+    }
+    button{
+        margin-left: 14%;
+    }
+    h4{
+      width:100%;  
+    }
+    h4, h1{
+        background-color: #DC3545;
+        
+        padding:11px;
+        border-radius: 5px;
+        padding-left:30px;
+    }
+    a{
+        padding-left: 70%
+    }
+</style>
+<body>
+    <div class="container col-12" align='center'>
+        <div class="wrapper col-9">
+            <h1> Add a book to our inventory!</h1>
+            <div class='col-5' align='left'>
+                <h4>Create book here:</h4>
+
+                
+                <div class='d-inline'>
+                    <!--form-->
+                    <form action='/new' method='POST'>
+                        {% csrf_token %}
+                        <label for="exampleFormControlTextarea1"class='col-5'>Title: </label>
+                            <input type="text" class="form-control col-6" id="formGroupExampleInput" placeholder="Name of Title" name='name'>
+                    </div>
+                    <div class="form-group">
+                         <label for="exampleFormControlTextarea1" class='col-5'>Description:</label>
+                        <textarea class="form-control col-6" id="exampleFormControlTextarea1" placeholder="Describe the movie here.." rows="3" name='desc'></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-danger">Submit</button>
+                </form>
+                <a href='/authors'>Add by Author</a>
+            </div>
+
+
+            <div class='col-6'>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Authors</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+<!--FOR loop to display all items in dict(library)-->
+
+                        {% for book in library %}
+                            <tr>
+                                <td>{{ book.id }}</td>
+                                <td>{{ book.title }}</td>
+                                <td>{{ book.desc }}</td>
+                                <td>{{ book.authors.all }}</td>
+                                <td><a href='/book_info/{{book.id}}' name='views'value={{book.id}}>View</a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    
+
+    </div>
+</body>
+</html>
