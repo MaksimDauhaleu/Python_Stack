@@ -3,7 +3,7 @@ from django.db import models
 class Show(models.Model):
     title = models.CharField(max_length=100)
     network =models.CharField(max_length=50)
-    
+    desc = models.CharField(max_length=1000)
     created_at = models.DateTimeField(auto_now=True)
     updated_at = models.DateTimeField(auto_now=True)
 

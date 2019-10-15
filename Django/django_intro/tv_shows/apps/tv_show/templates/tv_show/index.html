@@ -15,11 +15,11 @@
                 <table class='table'>
                     <thead class="thead-dark">
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">ID</th>
                             <th scope="col">Title</th>
                             <th scope="col">Network</th>
-                            <th scope="col">Authors</th>
-                            <th scope="col"></th>
+                            <th scope="col">Release Date</th>
+                            <th scope="col">Actions</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
@@ -29,18 +29,18 @@
                             <td>{{ show.id }}</td>
                             <td>{{ show.title }}</td>
                             <td>{{ show.network }}</td>
-                            <td>{{ show.authors.all }}</td>
+                            <td>{{ show.created_at }}</td>
                             <td>
-                                <a href='add_show/{{show.id}}' name='views'value={{book.id}}>View</a>
-                                <a href='add_show/{{show.id}}/edit' name='views'value={{book.id}}>Edit</a>
-                                <a href='delete' name='views'value={{book.id}}>Delete</a>
+                                <a href='show/{{show.id}}'>Show</a>
+                                <a href='show/{{show.id}}/edit'>Edit</a>
+                                <a href='/{{show.id}}/destroy'>Delete</a>
                             </td>
                         </tr>
                     {% endfor %}
                     </tbody>
                 </table>
             </div>
-            <a href='add_show'>Add a New Show</a>
+            <a href='show'>Add a New Show</a>
         </div>
     </div>
 </body>

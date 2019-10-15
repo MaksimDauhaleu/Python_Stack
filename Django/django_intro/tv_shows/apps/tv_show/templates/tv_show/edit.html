@@ -21,21 +21,23 @@
     </style>
 </head>
 <body>
+    <h1>EDIT PAGE</h1>
     <div class="container col-12" align='center'>
-        <div class="wrapper col-5">
+        <a href="/"> Go back</a>
+        <div class="wrapper col-4">
             <div align='left' id=maksim>
-                <form action='/add_show' method='POST'>
+                <form action='/show/{{show.id}}/update' method='POST'>
                     {% csrf_token %}
-                    <h1>Add a New Show</h1>
+                    <h1>Edit Show {{ show.id }}</h1>
                     <label>Title:</label>
-                    <input type='text'name = "title" class='d-block'>
+                    <input type='text' name="title" class='d-block' value="{{ show.title }}">
                     <label>Network:</label>
-                    <input type='text' name="network">
+                    <input type='text' name="network" value="{{ show.network }}">
                     <label>Release Date:</label>
-                    <input type='date'>
+                    <input type='text' value="{{ show.created_at }}">
                     <label class='d-block'>Description:</label>
-                    <input type='textarea' name= "desc"class='d-block'>
-                    <button type="submit" name="create_b" class="btn btn-danger">Create</button>
+                    <input type='textarea' name="desc" class='d-block' value="{{ show.desc }}">
+                    <button type="submit"  class="btn btn-danger">Update</button>
                 </form>
             </div>
         </div>
