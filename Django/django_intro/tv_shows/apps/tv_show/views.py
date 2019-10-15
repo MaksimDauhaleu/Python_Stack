@@ -22,6 +22,8 @@ def add_show(request):
     return redirect(f'/show/{new_show.id}')
 
 def update(request, id):
+    errors = Show.objects.basic_validator(request.POST)
+
     context = {
         "show" : Show.objects.get(id=id),
     }
