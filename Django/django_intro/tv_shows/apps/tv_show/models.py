@@ -5,7 +5,9 @@ class ShowManager(models.Manager):
     def basic_validator(self, postData):
         errors = {}
         if len(postData['title']) < 5:
-            errors["name"] = "Blog name should be at least 5 characters"
+            errors["title"] = "Blog name should be at least 5 characters"
+        if len(postData['network']) < 10:
+            errors["network"] = "Blog description should be at least 10 characters"
         if len(postData['desc']) < 10:
             errors["desc"] = "Blog description should be at least 10 characters"
         return errors
@@ -18,6 +20,6 @@ class Show(models.Model):
     created_at = models.DateTimeField(auto_now=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = ShowManager()
-    
+
     def __repr__(self):
         return f"{self.title}{self.network}"

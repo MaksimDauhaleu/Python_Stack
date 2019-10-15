@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from .models import *
 
 def index(request):
@@ -23,11 +24,20 @@ def add_show(request):
 
 def update(request, id):
     errors = Show.objects.basic_validator(request.POST)
+    if len(errors) > 0:
+        for key, value in errors.items():
+            messages.error(request, value)
 
-    context = {
-        "show" : Show.objects.get(id=id),
-    }
-    return render(request,'tv_show/edit.html',context)
+        return redirect('/show/{id}/edit')
+
+    else:
+        show = Blog.objects.get(id = id)
+        show.name = request.POST['name']
+        show.desc = request.POST['desc']
+        show.desc = request.POST['desc']
+        show.save()
+        messages.success(request, "Blog successfully updated")
+        return redirect(f'/show/')
 
 
 def read(request, id):
@@ -43,5 +53,8 @@ def delete(request, id):
     return redirect('/')
 
 def edit(request, id):
-    new_show = Show.objects.create(title = request.POST['title'], network = request.POST['network'], desc = request.POST['desc'])
-    return redirect(f'/show/{new_show.id}')
+    context = {
+        "show" : Show.objects.get(id=id),
+    }
+    #new_show = Show.objects.create(title = request.POST['title'], network = request.POST['network'], desc = request.POST['desc'])
+    return render(request,'tv_show/edit.html',context)
