@@ -6,7 +6,7 @@ class ShowManager(models.Manager):
         errors = {}
         if len(postData['title']) < 5:
             errors["title"] = "Blog name should be at least 5 characters"
-        if len(postData['network']) < 10:
+        if len(postData['network']) < 2:
             errors["network"] = "Blog description should be at least 10 characters"
         if len(postData['desc']) < 10:
             errors["desc"] = "Blog description should be at least 10 characters"

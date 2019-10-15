@@ -23,22 +23,23 @@ def add_show(request):
     return redirect(f'/show/{new_show.id}')
 
 def update(request, id):
+    show = Show.objects.get(id = id)
     errors = Show.objects.basic_validator(request.POST)
     if len(errors) > 0:
+        print("errors", errors)
         for key, value in errors.items():
             messages.error(request, value)
-
-        return redirect('/show/{id}/edit')
+        return redirect(f'/show/{show.id}/edit')
 
     else:
-        show = Blog.objects.get(id = id)
-        show.name = request.POST['name']
-        show.desc = request.POST['desc']
-        show.desc = request.POST['desc']
-        show.save()
+        fix_show = Show.objects.get(id = id)
+        fix_show.name = request.POST['title']
+        fix_show.desc = request.POST['network']
+        fix_show.desc = request.POST['desc']
+        fix_show.save()
         messages.success(request, "Blog successfully updated")
-        return redirect(f'/show/')
-
+        return redirect('/')
+    
 
 def read(request, id):
     context = {
