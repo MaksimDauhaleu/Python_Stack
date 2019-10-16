@@ -94,17 +94,18 @@
              <div class="main">
                 <div class="col-md-6 col-sm-12">
                    <div class="login-form">
-                      <form >
+                      <form action="user_login" method="POST">
+                        {% csrf_token %}
                          <div class="form-group">
-                            <label>User Name</label>
-                            <input type="text" class="form-control" placeholder="User Name">
+                            <label>Gmail</label>
+                            <input type="text" name="email" class="form-control" placeholder="Gmail">
                          </div>
                          <div class="form-group">
                             <label>Password</label>
-                            <input type="password" class="form-control" placeholder="Password">
+                            <input type="password" name="password" class="form-control" placeholder="Password">
                          </div>
                          <button type="submit" class="btn btn-black">Login</button>
-                         <a href="regist" type="submit" class="btn btn-secondary">Register</a>
+                         <a href="/regist" type="submit" class="btn btn-secondary">Register</a>
                       </form>
                    </div>
                 </div>
