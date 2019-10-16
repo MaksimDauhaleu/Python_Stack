@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from .models import *
 from django.contrib import messages
 import bcrypt
@@ -39,8 +39,8 @@ def user_login(request):
     print("login user works!"+"*"*80)
     if request.method == "POST":
         other_user = Regist.objects.filter(email = request.POST['email'])
-        print(other_user)
-        print(request.POST)
+        #print(other_user)
+        #print(request.POST)
         try:
             this_user = other_user[0]
             if request.POST['password'] == this_user.password:
@@ -52,4 +52,4 @@ def user_login(request):
     if len(errors)>0:
         for key, value in errors.items():
             messages.error(request, value)
-    return redirect("/login")
+    return redirect("/success")
