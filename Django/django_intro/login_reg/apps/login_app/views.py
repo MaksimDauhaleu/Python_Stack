@@ -31,8 +31,10 @@ def regist(request):
 
 
 def success(request):
-
-    return render(request, 'login_app/success.html')
+    context = {
+        "user" : Regist.objects.get(id = id),
+    }
+    return render(request, 'login_app/success.html', context)
 
 def user_login(request):
     print("im at the user login in views")
