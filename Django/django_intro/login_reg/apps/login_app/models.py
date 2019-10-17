@@ -67,3 +67,4 @@ class Regist(models.Model):
     def __repr__(self):
         return f"{self.first_name}{self.last_name}{self.email}{self.password}{self.conf_password}"
 
+

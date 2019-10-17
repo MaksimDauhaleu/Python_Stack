@@ -7,4 +7,7 @@ urlpatterns = [
     url(r'^regist$', views.regist),
     url(r'^success$', views.success),
     url(r'^logout', views.logout),
+    ########
+    url(r'^comment', views.post_massage),
+
 ]

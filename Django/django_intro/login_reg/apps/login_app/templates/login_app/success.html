@@ -4,17 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <title>Document</title>
     <style>
+    body{
+        background-color: grey;
+    }
     h1{
         margin-left: 35%;
         margin-top: 20%;
         font-size: 350%;
         font-style: italic;
     }
+    #web_name{
+        font-size: 300%;
+        color: white;
+        font-family: 'Times New Roman', Times, serif;
+        padding-left: 150px;
+        vertical-align: middle;
+    }
+    #welcome{
+        font-size: 300%;
+        color: white;
+        font-family: 'Times New Roman', Times, serif;
+        padding-left: 750px;
+        vertical-align: middle;
+    }
     </style>
 </head>
-<body>
-    <h1>Welcome,{{ user.first_name }} </h1>
+<body>  
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-heade">
+                <a class="navbar-brand" id="web_name" href="#">CodingDojo Wall</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li id="welcome">Welcome, {{user.first_name}} </li>
+            </ul>
+        </div>
+        <div class='col-12'>
+            <form action='/message' method='POST'>
+                {% csrf_token %}
+                <textarea name='message' class='form-control'></textarea>
+                <button type='submit' class='btn btn-dark'>Post</button>
+            </form>
+        </div>
+        <div class='col-12'>
+        {% for msg in messages %}
+            <p>{{ msg }}</p>
+                {% for comment in msg.comments %}
+                    <p>{{comment }}</p>
+                {% endfor %}
+            <form action='/comment/' method='POST'>
+                {% csrf_token %}
+                <textarea name='comment' class='form-control'></textarea>
+                <button type='submit' class='btn btn-dark'>Comment</button>
+            </form>
+        {% endfor %}
+    </div>
 </body>
 </html>

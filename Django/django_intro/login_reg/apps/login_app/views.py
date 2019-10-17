@@ -24,6 +24,7 @@ def regist(request):
             pw_hash = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
             print(pw_hash)
             user = Regist.objects.create(first_name = first_name, last_name = last_name, email = email, password = pw_hash)
+            request.session['id'] = user.id
             return redirect('/login')
     else:
         return render(request, 'login_app/regist.html')
@@ -32,7 +33,7 @@ def regist(request):
 
 def success(request):
     context = {
-        "user" : Regist.objects.get(id = id),
+        "user" : Regist.objects.get(id = request.session['id']),
     }
     return render(request, 'login_app/success.html', context)
 
@@ -45,8 +46,17 @@ def user_login(request):
             for key, value in errors.items():
                 messages.error(request, value)
             return redirect('/login')
-        else:
+        else: 
+            user = Regist.objects.get(email = request.POST['email'])
+            request.session['id'] = user.id
             return redirect('/success')
 def logout(request):
         request.session.clear()
         return redirect('/login')
+
+#################################################################################################
+                    
+
+def post_massage(request):
+    user = Regist.objects.get(id = id)
+    Messages.ob
