@@ -40,7 +40,17 @@
     }
     .text{
         margin-left: 400px;
-        width: 800px;
+        width: 700px;
+        border-radius:10px;
+        border: none;
+        background-color: rgb(202, 191, 191); 
+    }
+    .comments1{
+        margin-left: 700px;
+        width: 700px;
+        border-radius:10px;
+        border: none;
+        background-color: #808080; 
     }
    
     </style>
@@ -72,9 +82,9 @@
         </div>
         <div class='col-12'>
         {% for msg in user.messages.all %}
-            <p class="text">{{ msg.msg }}</p>
+            <p class="comments1">{{ msg.msg }}</p>
                 {% for comment in msg.comments.all %}
-                    <p class="text">{{comment }}</p>
+                    <p class="comments1">{{comment.comment }}</p>
                 {% endfor %}
             <form action='/comment' method='POST'>
                 {% csrf_token %}

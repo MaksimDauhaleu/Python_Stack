@@ -60,11 +60,20 @@ def logout(request):
 def post_message(request):
     user_id = request.session['id']
     user = Regist.objects.get(id=user_id)
-    Message.objects.create(msg = request.POST['message'], user = user)
+    message = Message.objects.create(msg = request.POST['message'], user = user)
+    request.session['message'] = message.id
     return redirect('/success')
+
 
 def delete(request):
     user_id = request.session['id']
     user = Regist.objects.get(id=user_id)
     Comment.objects.get(user).delete()
     return redirect('/success') 
+
+def add_comment(request):
+    user_id = request.session['id']
+    message = request.session['message']
+    user = Regist.objects.get(id=user_id)
+    Comment.objects.create(comment = request.POST['comment'],msg= Message.objects.get(id = message),user = user)
+    return redirect('/success')
