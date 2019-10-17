@@ -34,6 +34,7 @@ def regist(request):
 def success(request):
     context = {
         "user" : Regist.objects.get(id = request.session['id']),
+        "messages" : Message.objects.all()
     }
     return render(request, 'wall_app/success.html', context)
 
