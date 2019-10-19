@@ -30,7 +30,6 @@ def regist(request):
         return render(request, 'wall_app/regist.html')
 
 
-
 def success(request):
     context = {
         "user" : Regist.objects.get(id = request.session['id']),

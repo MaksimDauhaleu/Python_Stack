@@ -27,7 +27,7 @@
     <div class="container col-12" align='center'>
         <div class="wrapper col-5">
             <div align='left' id=maksim>
-                <form action='/read/{{read.id}}/update' method='POST'>
+                <form action='/update_process' method='POST'>
                     {% csrf_token %}
                     {% if messages %}
                     <ul class="messages">    
@@ -38,14 +38,15 @@
                     {% endif %}
                     <h1>Add a New Trip</h1>
                     <label>Destination:</label>
-                    <input type='text'name="destination" class='d-block'>
+                    <input type='text'name="destination" value="{{trip_info.destination}}" class='d-block'>
                     <label>Start Date:</label>
-                    <input type='date' name="startdate">
+                    <input type='text' value="{{trip_info.startdate}}" name="startdate">
                     <label>End Date:</label>
-                    <input type='date' name="enddate">
+                    <input type='text' value="{{trip_info.enddate}}" name="enddate">
                     <label class='d-block'>Plan:</label>
-                    <input type='textarea' name= "plan"class='d-block'>
-                    <button type="submit" name="create_b" class="btn btn-danger">Create</button>
+                    <input type='textarea' value="{{trip_info.plan}}" name= "plan"class='d-block'>
+                    <button type="submit" name="create_b" class="btn btn-success">Create</button>
+                    <a href="/dashboard" type="submit" name="create_b" class="btn btn-danger">Back to Dashboard</a>
                 </form>
             </div>
         </div>
