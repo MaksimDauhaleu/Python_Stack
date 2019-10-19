@@ -77,8 +77,11 @@ def update(request,id):
     return render(request, 'exam_app/update.html', context)
 
 
-def update_process(request):
-    trip_id = Trip.objects.get(id = request.session['id'])
-    update_trip = Trip.objects.update(destination = request.POST['destination'], startdate = request.POST['startdate'], enddate = request.POST['enddate'], plan = request.POST['plan'])
-    update_trip.save()
+def update_process(request,id):
+    trip_update = Trip.objects.get(id = id)
+    trip_update.destination = request.POST['destination']
+    trip_update.startdate = request.POST['startdate']
+    trip_update.enddate = request.POST['enddate']
+    trip_update.plan = request.POST['plan']
+    trip_update.save()
     return redirect('/dashboard')

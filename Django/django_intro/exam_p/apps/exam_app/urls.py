@@ -10,5 +10,5 @@ urlpatterns = [
     url(r'^trips/new', views.create),
     url(r'^add_process', views.add_process),
     url(r'^trip/edit/(?P<id>\d+)', views.update),
-    url(r'^update_process', views.update_process),
+    url(r'^update_process/(?P<id>\d+)', views.update_process),
 ]

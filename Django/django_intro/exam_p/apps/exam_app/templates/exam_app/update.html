@@ -27,7 +27,7 @@
     <div class="container col-12" align='center'>
         <div class="wrapper col-5">
             <div align='left' id=maksim>
-                <form action='/update_process' method='POST'>
+                <form action='/update_process/{{ trip_info.id }}' method='POST'>
                     {% csrf_token %}
                     {% if messages %}
                     <ul class="messages">    
