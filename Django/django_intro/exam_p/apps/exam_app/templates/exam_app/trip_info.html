@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Trip Info</title>
+    <style>
+        body{
+            background-color: grey;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .main{
+            position: relative;
+            width: 600px;
+            height: 400px;
+            display:inline-block;
+            left: 620px;
+            top: 250px;
+            border: 3px solid black;
+            padding: 15px;
+            vertical-align: middle;
+        }
+        #destination{
+            position: relative;
+            left: 660px;
+            top:265px;
+            font-size: 230%;
+        }
+        #title{
+            position: relative;
+            top:230px;
+            left:622px;
+        }
+        h1{
+            font-size: 280%;
+        }
+        .button1{
+            border-radius: 2px;
+            background-color: #212529;
+            border:none;
+            color: #cccccc;
+            width: 130px;
+            height: 35px;
+            font-size:126%;
+            margin-top: 55px;
+            margin-right:150px;
+        }
+        .button2{
+            border-radius: 2px;
+            background-color: #212529;
+            border:none;
+            color: #cccccc;
+            width: 130px;
+            height: 35px;
+            font-size:126%;
+            margin-top: 55px;
+            margin-left:150px;
+        }
+        form{
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div id="title">
+        <h1 >Hello {{ user.first_name }}, Read about this trip!</h1>
+    </div>
+    <h1 id="destination"> {{ trip.destination }}</h1>
+    <div class="main" align="center" >
+        <h2>Start Date:<font color="#cccccc"> {{trip.startdate}}</font></h2>
+        <h2>End Date:<font color="#cccccc"> {{trip.enddate}}</font></h2>
+        <h2>Created on:<font color="#cccccc"> {{trip.created_at}}</font></h2>
+        <h2>Last Updated:<font color="#cccccc"> {{trip.updated_at}}</font></h2>
+        <h2>Plan:<font color="#cccccc"> {{trip.plan}}</font></h2>
+        <h2>Created By: <font color="#cccccc">{{user.first_name}} {{user.last_name}}</font></h2>
+        <form action="/logout"><button class="button1">Log Out</button></form>
+        <form action="/dashboard"><button class="button2">Dashboard</button></form>
+    </div>
+</body>
+</html>

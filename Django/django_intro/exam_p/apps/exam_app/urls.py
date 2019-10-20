@@ -11,4 +11,6 @@ urlpatterns = [
     url(r'^add_process', views.add_process),
     url(r'^trip/edit/(?P<id>\d+)', views.update),
     url(r'^update_process/(?P<id>\d+)', views.update_process),
+    url(r'^trip/(?P<id>\d+)', views.trip_info),
+    url(r'^delete/(?P<id>\d+)$', views.delete),
 ]

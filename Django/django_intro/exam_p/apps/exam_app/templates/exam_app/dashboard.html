@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <title>Document</title>
+    <title>Dashboard</title>
     <style>
     body{
         background-color: grey;
@@ -72,9 +72,9 @@
                         <td>{{ trip.enddate }}</td>
                         <td>{{ trip.plan }}</td>
                         <td>
-                            <a href='read/{{trip.id}}'>Show</a>
+                            <a href='trip/{{trip.id}}'>Show</a>
                             <a href='trip/edit/{{trip.id}}'>Edit</a>
-                            <a href=''>Delete</a>
+                            <a href='delete/{{ trip.id }}'>Delete</a>
                         </td>
                     </tr>
                 {% endfor %}
@@ -82,5 +82,37 @@
             </table>
         </div>
     </div>
+    <div class="wrapper col-6">
+            <div class="my_trips">
+                <table class='table'>
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Destination</th>
+                            <th scope="col">Start Date</th>
+                            <th scope="col">End Date</th>
+                            <th scope="col">Plan</th>
+                            <th scope="col">Actions</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for trip in other_trips  %}
+                        <tr>
+                            <td>{{ trip.destination }}</td>
+                            <td>{{ trip.startdate }}</td>
+                            <td>{{ trip.enddate }}</td>
+                            <td>{{ trip.plan }}</td>
+                            <td>
+                                <a href='trip/{{trip.id}}'>Show</a>
+                                <a href='trip/edit/{{trip.id}}'>Edit</a>
+                                <a href='delete'>Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {{ others_trips }}
 </body>
 </html>

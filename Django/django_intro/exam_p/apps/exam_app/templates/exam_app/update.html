@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Create</title>
+    <title>Update</title>
     <style>
     *{
         margin:0px;
@@ -11,6 +11,7 @@
     }
     body{
         background-color: grey;
+        font-family: 'Times New Roman', Times, serif;
     }
     .wrapper{
         padding-top:150px;
@@ -36,7 +37,7 @@
                         {% endfor %}
                     </ul>
                     {% endif %}
-                    <h1>Add a New Trip</h1>
+                    <h1>Update your trip</h1>
                     <label>Destination:</label>
                     <input type='text'name="destination" value="{{trip_info.destination}}" class='d-block'>
                     <label>Start Date:</label>
@@ -45,7 +46,7 @@
                     <input type='text' value="{{trip_info.enddate}}" name="enddate">
                     <label class='d-block'>Plan:</label>
                     <input type='textarea' value="{{trip_info.plan}}" name= "plan"class='d-block'>
-                    <button type="submit" name="create_b" class="btn btn-success">Create</button>
+                    <button type="submit" name="create_b" class="btn btn-success">Update</button>
                     <a href="/dashboard" type="submit" name="create_b" class="btn btn-danger">Back to Dashboard</a>
                 </form>
             </div>

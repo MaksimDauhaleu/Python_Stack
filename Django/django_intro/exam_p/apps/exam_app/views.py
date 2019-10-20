@@ -33,11 +33,10 @@ def regist(request):
 def dashboard(request):
     context = {
         "user" : User.objects.get(id = request.session['id']),
-        "trip" : Trip.objects.get(id = request.session['id'])
-
+        "trip" : Trip.objects.get(id = request.session['id']),
+        "other_trips" : Trip.objects.exclude(id=request.session['id'])
     }
     return render(request, 'exam_app/dashboard.html', context)
-
 
 def user_login(request):
     print("im at the user login in views")
@@ -70,18 +69,32 @@ def add_process(request):
     return redirect('/dashboard') 
 
 
-def update(request,id):
+def update(request, id):
     context = {
     "trip_info" : Trip.objects.get(id=id)
     }
     return render(request, 'exam_app/update.html', context)
 
 
-def update_process(request,id):
+def update_process(request, id):
     trip_update = Trip.objects.get(id = id)
     trip_update.destination = request.POST['destination']
     trip_update.startdate = request.POST['startdate']
     trip_update.enddate = request.POST['enddate']
     trip_update.plan = request.POST['plan']
     trip_update.save()
+    return redirect('/dashboard')
+
+
+def trip_info(request, id):
+    context = {
+    "trip" : Trip.objects.get(id = id),
+    "user" : User.objects.get(id = request.session['id']),
+    }
+    return render(request, 'exam_app/trip_info.html', context)
+
+
+def delete(request,id):
+    trip = Trip.objects.get(id = id)
+    trip.delete()
     return redirect('/dashboard')
