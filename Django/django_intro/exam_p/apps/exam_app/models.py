@@ -44,10 +44,18 @@ class LoginManager(models.Manager):
                 errors['password'] = "Wrong Password"
             
         return errors
-        
-        
 
-                       #########<-->#########
+
+    def create_validator(self, postData):
+        errors = {}
+
+        if len(postData["destination"]) < 3:
+            errors["destination"] = "The distination must be at least 3 characters."
+
+        if len(postData["plan"]) < 3:
+            errors["plan"] = "The plan must be at least 3 characters."
+            
+        return errors
 
 
 class User(models.Model):
@@ -77,3 +85,15 @@ class Trip(models.Model):
         return f"{self.destination}{self.startdate}{self.enddate}{self.plan}"
 
 
+class Others(models.Model):
+    destination = models.CharField(max_length=255)
+    startdate = models.DateField()
+    enddate = models.DateField()
+    plan = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    objects = LoginManager()
+
+
+    def __repr__(self):
+        return f"{self.destination}{self.startdate}{self.enddate}{self.plan}"

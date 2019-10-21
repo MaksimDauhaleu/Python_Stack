@@ -31,10 +31,13 @@ def regist(request):
 
 
 def dashboard(request):
+    user = User.objects.get(id = request.session['id'])
+    user_trips_ids = [my_trip.id for my_trip in user.trips.all()]  
+    trip = Trip.objects.get(id = request.session['id'])
     context = {
-        "user" : User.objects.get(id = request.session['id']),
-        "trip" : Trip.objects.get(id = request.session['id']),
-        "other_trips" : Trip.objects.exclude(id=request.session['id'])
+        "user": user,
+        "trips" : Trip.objects.exclude(id__in = user_trips_ids),
+        "others_trips" : Others.objects.all(),
     }
     return render(request, 'exam_app/dashboard.html', context)
 
@@ -63,10 +66,17 @@ def create(request):
 
 
 def add_process(request):
-    user = User.objects.get(id = request.session['id'])
-    add_trip = Trip.objects.create(destination = request.POST['destination'], startdate = request.POST['startdate'], enddate = request.POST['enddate'], plan = request.POST['plan'])
-    user.trips.add(add_trip)
-    return redirect('/dashboard') 
+    errors = User.objects.create_validator(request.POST)
+
+    if len(errors) > 0:
+        for key, value in errors.items():
+            messages.error(request, value)
+        return redirect('trips/new')
+    else:
+        user = User.objects.get(id = request.session['id'])
+        add_trip = Trip.objects.create(destination = request.POST['destination'], startdate = request.POST['startdate'], enddate = request.POST['enddate'], plan = request.POST['plan'])
+        user.trips.add(add_trip)
+        return redirect('/dashboard') 
 
 
 def update(request, id):
@@ -77,13 +87,20 @@ def update(request, id):
 
 
 def update_process(request, id):
-    trip_update = Trip.objects.get(id = id)
-    trip_update.destination = request.POST['destination']
-    trip_update.startdate = request.POST['startdate']
-    trip_update.enddate = request.POST['enddate']
-    trip_update.plan = request.POST['plan']
-    trip_update.save()
-    return redirect('/dashboard')
+    errors = User.objects.create_validator(request.POST)
+    trip = Trip.objects.get(id = id)
+    if len(errors) > 0:
+        for key, value in errors.items():
+            messages.error(request, value)
+        return redirect(f'/trip/edit/{trip.id}')
+    else:
+        trip_update = Trip.objects.get(id = id)
+        trip_update.destination = request.POST['destination']
+        trip_update.startdate = request.POST['startdate']
+        trip_update.enddate = request.POST['enddate']
+        trip_update.plan = request.POST['plan']
+        trip_update.save()
+        return redirect('/dashboard')
 
 
 def trip_info(request, id):
@@ -95,6 +112,17 @@ def trip_info(request, id):
 
 
 def delete(request,id):
-    trip = Trip.objects.get(id = id)
-    trip.delete()
+    delete = Trip.objects.get(id = id)
+    delete.delete()
+    return redirect('/dashboard')
+
+def delete_other(request,id):
+    delete = Others.objects.get(id = id)
+    delete.delete()
+    return redirect('/dashboard')
+
+
+def join(request, id):
+    join = Trip.objects.get(id = id)
+    Others.objects.create(destination = join.destination, plan = join.plan, startdate= join.startdate,enddate=join.enddate)
     return redirect('/dashboard')

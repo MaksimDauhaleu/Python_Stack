@@ -34,31 +34,18 @@
         h1{
             font-size: 280%;
         }
-        .button1{
-            border-radius: 2px;
-            background-color: #212529;
-            border:none;
-            color: #cccccc;
-            width: 130px;
-            height: 35px;
-            font-size:126%;
-            margin-top: 55px;
-            margin-right:150px;
-        }
-        .button2{
-            border-radius: 2px;
-            background-color: #212529;
-            border:none;
-            color: #cccccc;
-            width: 130px;
-            height: 35px;
-            font-size:126%;
+        .btn-danger{
             margin-top: 55px;
             margin-left:150px;
+        }
+        .btn-success{
+            margin-top: 55px;
+            margin-right:150px;
         }
         form{
             display: inline-block;
         }
+
     </style>
 </head>
 <body>
@@ -73,8 +60,8 @@
         <h2>Last Updated:<font color="#cccccc"> {{trip.updated_at}}</font></h2>
         <h2>Plan:<font color="#cccccc"> {{trip.plan}}</font></h2>
         <h2>Created By: <font color="#cccccc">{{user.first_name}} {{user.last_name}}</font></h2>
-        <form action="/logout"><button class="button1">Log Out</button></form>
-        <form action="/dashboard"><button class="button2">Dashboard</button></form>
+        <form action="/logout"><button class="btn btn-success">Log Out</button></form>
+        <form action="/dashboard"><button class="btn btn-danger">Dashboard</button></form>
     </div>
 </body>
 </html>

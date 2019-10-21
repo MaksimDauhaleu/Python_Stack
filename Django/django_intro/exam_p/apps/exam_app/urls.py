@@ -13,4 +13,7 @@ urlpatterns = [
     url(r'^update_process/(?P<id>\d+)', views.update_process),
     url(r'^trip/(?P<id>\d+)', views.trip_info),
     url(r'^delete/(?P<id>\d+)$', views.delete),
+    url(r'^delete_other/(?P<id>\d+)$', views.delete_other),
+    url(r'^join/(?P<id>\d+)', views.join),
+    
 ]
