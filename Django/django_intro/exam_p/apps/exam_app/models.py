@@ -92,6 +92,7 @@ class Others(models.Model):
     plan = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now=True)
     updated_at = models.DateTimeField(auto_now=True)
+    users = models.ManyToManyField(User ,related_name="otherss")
     objects = LoginManager()
 
 

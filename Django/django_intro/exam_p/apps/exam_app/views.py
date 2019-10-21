@@ -33,7 +33,6 @@ def regist(request):
 def dashboard(request):
     user = User.objects.get(id = request.session['id'])
     user_trips_ids = [my_trip.id for my_trip in user.trips.all()]  
-    trip = Trip.objects.get(id = request.session['id'])
     context = {
         "user": user,
         "trips" : Trip.objects.exclude(id__in = user_trips_ids),
@@ -80,8 +79,14 @@ def add_process(request):
 
 
 def update(request, id):
+    trip_info = Trip.objects.get(id=id)
+    startdate = trip_info.startdate.strftime("%Y-%m-%d") 
+    enddate = trip_info.enddate.strftime("%Y-%m-%d") 
+
     context = {
-    "trip_info" : Trip.objects.get(id=id)
+        "trip_info" : trip_info,
+        "startdate" : startdate,
+        "enddate" : enddate,
     }
     return render(request, 'exam_app/update.html', context)
 
@@ -124,5 +129,7 @@ def delete_other(request,id):
 
 def join(request, id):
     join = Trip.objects.get(id = id)
-    Others.objects.create(destination = join.destination, plan = join.plan, startdate= join.startdate,enddate=join.enddate)
+    startdate = join.startdate.strftime("%Y-%m-%d") 
+    enddate = join.enddate.strftime("%Y-%m-%d")
+    Others.objects.create(destination = join.destination, plan = join.plan, startdate= startdate,enddate=enddate)
     return redirect('/dashboard')
