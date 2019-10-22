@@ -1,0 +1,41 @@
+{% extends "page_app/base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class = "col">
+                <div class = "row">
+                    {% if sneakers %}
+                        {% for sneaker in sneakers %}
+                            <div class = "col-12 col-md-6 col-lg-4">
+                                <div class = "card">
+                                    <img class="card-img-top" src = "{{sneaker.sneaker_image.url }}"
+                                         alt = "{{ sneaker.name }}">
+                                    <div class="card-body">
+                                        <h4 class="card-title">
+                                            <a href="{% url 'detail' sneaker.id %}" title="View product"
+                                               >{{ sneaker.name }}</a>
+                                        </h4>
+                                        <p class="card-text">{{ sneaker.description }}</p>
+                                        <div class = "row">
+                                            <div class = "col">
+                                                <p class="btn btn-danger btn-block">{{sneaker.price}}</p>
+                                            </div>
+                                            <div class="col">
+                                                <a href="#" class="btn btn-success btn-block">
+                                                    Add to cart
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p>No sneakers are available.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
