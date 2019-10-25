@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% block title %}Catalog{% endblock %}
+{% block content %}
+<style>
+    .container{
+        margin-top: 120px;
+        margin-bottom: 120px;
+        margin-right: 550px;
+    }
+</style>
+
+<main class="my-form">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">Register</div>
+                            <div class="card-body">
+                                <form name="my-form" action="regist_process" method="POST">
+                                    {% csrf_token %}
+                                    <div class="form-group row">
+                                        <label for="full_name" class="col-md-4 col-form-label text-md-right">Full Name</label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="full_name" class="form-control" name="full_name">
+                                        </div>
+                                    </div>
+    
+                                    <div class="form-group row">
+                                        <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="email_address" class="form-control" name="email">
+                                        </div>
+                                    </div>
+    
+                                    <div class="form-group row">
+                                        <label for="user_name" class="col-md-4 col-form-label text-md-right">Date of Birth</label>
+                                        <div class="col-md-6">
+                                            <input type="date" id="dof" class="form-control" name="dof">
+                                        </div>
+                                    </div>
+    
+                                    <div class="form-group row">
+                                        <label for="phone_number" class="col-md-4 col-form-label text-md-right">Phone Number</label>
+                                        <div class="col-md-6">
+                                            <input type="text" name="phone_number" class="form-control">
+                                        </div>
+                                    </div>
+    
+                                    <div class="form-group row">
+                                        <label for="present_address" class="col-md-4 col-form-label text-md-right">Password</label>
+                                        <div class="col-md-6">
+                                            <input type="password" name="password" class="form-control">
+                                        </div>
+                                    </div>
+    
+                                    <div class="form-group row">
+                                        <label for="permanent_address" class="col-md-4 col-form-label text-md-right">Confirm Password</label>
+                                        <div class="col-md-6">
+                                            <input type="password" name="password_conf" class="form-control" name="permanent-address">
+                                        </div>
+                                    </div>
+    
+                                    <div class="col-md-6 offset-md-4">
+                                        <button type="submit" class="btn btn-primary">
+                                        Register
+                                        </button>
+                                    </div>
+                                    {% if messages %}
+                                    <ul class="messages">    
+                                        {% for message in messages %}    
+                                            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    
+    </main>
+{% endblock %}

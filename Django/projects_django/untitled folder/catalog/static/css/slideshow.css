@@ -1,0 +1,25 @@
+.d-block{
+    height: 700px;
+}
+.po{
+    width: 1350px;
+    margin-bottom: 100px;
+    display:inline-block;
+}
+.po2{
+    width: 445px;
+    margin-bottom: 100px;
+    display:inline-block;
+    margin-left: -10px;
+}
+#r{
+    height: 350px;
+}
+
+.arrivals{
+    font-size: 200%;
+    margin-left: 720px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: rgb(235, 83, 83);
+}
+
