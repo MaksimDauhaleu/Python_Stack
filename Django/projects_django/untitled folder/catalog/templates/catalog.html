@@ -1,0 +1,259 @@
+{% extends 'base.html' %}
+{% block title %}Catalog{% endblock %}
+{% block content %}
+{% load static %}
+<script src="{% static 'js/range.js' %}"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!--<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>  ######  This shit ###### --> 
+
+<style> 
+#rangeBox{ /* carry complete  range box*/
+    width:240px;
+    height:100px;
+    
+    }
+    #sliderBox{
+    position:relative;
+    top:0%;
+    width:240px;
+    }
+    #slider0to50{
+    width:120px;/*1x width*/
+    position:absolute;
+    left:0%;
+    }
+    #slider51to100{
+    width:120px;/*1x width*/
+    position:absolute;
+    left:50%;
+    }
+    #inputRange{
+    position:relative;
+    top:50%;
+    }
+    #inputRange::after{
+    content:"";
+    clear:both;
+    display:block
+    }
+    #inputRange #min{
+     width:40%;
+    float:left;
+     }   
+    #inputRange #max{
+     width:40%;
+    float:right;
+    }
+    #update_b{
+        width: 240px;
+        height: 30px;
+        font-size: 130%;
+        color: black;
+        background-color:#F5F5F5; 
+        margin-left: 80px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        border-radius: 3px;
+        margin-top: 10px;
+    }
+    .cont{
+        display: inline-block;
+        width: 1000px;
+    }
+    .panel{
+        border: 1px solid #DDDDDD;
+        margin-top: 15px;
+        border-radius:none; 
+    }
+    .panel-group .panel+.panel {
+     margin-top: 2px;
+}
+</style>
+<div class="cont0">
+    <div class="row-left">
+        <div class="col-sm-3 col-md-3">
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon">
+                            </span>Price</a>
+                        </h4>
+                    </div>
+                    <form action="/price_range" method="POST">
+                    {% csrf_token %}
+                    <div id ="collapseTwo" class="panel-collapse collapse">                    
+                        <div data-role="main" class="ui-content">
+                            <div id="rangeBox">    
+                                <div id="sliderBox">
+                                    <input type="range" id="slider0to50" step="5" name="first" min="0" max="500">
+                                    <input type="range" id="slider51to100" step="5" name="second" min="501" max="1000">
+                                </div>
+                                <div id="inputRange">
+                                    <input type="number" step="5" min="0" max="500" placeholder="Min" id="min" >
+                                    <input type="number" step="5" min="51" max="1000" placeholder="Max" id="max">
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="glyphicon glyphicon">
+                            </span>Size</a>
+                        </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse">
+                        <div class="panel-body">
+                       
+
+
+
+
+
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span class="glyphicon glyphicon">
+                            </span>Brand</a>
+                        </h4>
+                    </div>
+                    <div id="collapseFour" class="panel-collapse collapse">
+                        <div class="panel-body">
+                    
+
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive"><span class="glyphicon glyphicon">
+                                </span>Gender Choose</a>
+                            </h4>
+                        </div>
+                        <div id="collapseFive" class="panel-collapse collapse">
+                            <div class="panel-body">
+                        
+    
+    
+    
+    
+    
+    
+                            </div>
+                        </div>
+                    </div>
+                <button id="update_b">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<link rel="stylesheet" href="{% static 'css/catalog.css' %}">
+    <div class="cont">
+        <div class="row-right">
+            <div class = "col">
+                <div class = "row">
+                    {% if sneakers %}
+                         {% for sneaker in sneakers %}
+                            <div class = "col-12 col-md-6 col-lg-4">
+                                <div class = "card">
+                                    <img class="card-img-top" src = "{{sneaker.sneaker_image.url }}"
+                                         alt = "{{ sneaker.name }}">
+                                    <div class="card-body">
+                                        <h4 class="card-title">
+                                            <a href="{% url 'detail' sneaker.id %}" title="View product">{{ sneaker.name }}</a>
+                                        </h4>
+                                        <div class = "row">
+                                            <div class = "col">
+                                                <p class="btn btn-danger btn-block">{{sneaker.price}}</p>
+                                            </div>
+                                            <div class="col">
+                                                <a href="{% url 'cart' sneaker.id %}" class="btn btn-success btn-block">
+                                                    Add to cart
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        {% for sneaker in snks %}
+                        <div class = "col-12 col-md-6 col-lg-4">
+                                <div class = "card">
+                                    <img class="card-img-top" src = "{{sneaker.sneaker_image.url }}"
+                                         alt = "{{ sneaker.name }}">
+                                    <div class="card-body">
+                                        <h4 class="card-title">
+                                            <a href="{% url 'detail' sneaker.id %}" title="View product">{{ sneaker.name }}</a>
+                                        </h4>
+                                        <div class = "row">
+                                            <div class = "col">
+                                                <p class="btn btn-danger btn-block">{{sneaker.price}}</p>
+                                            </div>
+                                            <div class="col">
+                                                <a href="{% url 'cart' sneaker.id %}" class="btn btn-success btn-block">
+                                                    Add to cart
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+ <script>
+    var sliderLeft=document.getElementById("slider0to50");
+    var sliderRight=document.getElementById("slider51to100");
+    var inputMin=document.getElementById("min");
+    var inputMax=document.getElementById("max");
+
+    ///value updation from input to slider
+    //function input update to slider
+    function sliderLeftInput(){//input udate slider left
+        sliderLeft.value=inputMin.value;
+    }
+    function sliderRightInput(){//input update slider right
+        sliderRight.value=(inputMax.value);//chnage in input max updated in slider right
+    }
+
+    //calling function on change of inputs to update in slider
+    inputMin.addEventListener("change",sliderLeftInput);
+    inputMax.addEventListener("change",sliderRightInput);
+
+
+    ///value updation from slider to input
+    //functions to update from slider to inputs 
+    function inputMinSliderLeft(){//slider update inputs
+        inputMin.value=sliderLeft.value;
+    }
+    function inputMaxSliderRight(){//slider update inputs
+        inputMax.value=sliderRight.value;
+    }
+    sliderLeft.addEventListener("change",inputMinSliderLeft);
+    sliderRight.addEventListener("change",inputMaxSliderRight);
+ </script>   
+{% endblock %}

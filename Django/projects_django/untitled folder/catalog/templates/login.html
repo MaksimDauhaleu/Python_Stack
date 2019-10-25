@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% block title %}Catalog{% endblock %}
+{% block content %}
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+        }
+        #login .container #login-row #login-column #login-box {
+            position: relative;
+            margin-bottom: 100px;
+            left: -50px;
+            width: 700px;
+            height: 465px;
+            margin-right: 200px;
+            background-color: #EAEAEA;
+        }
+        #login .container #login-row #login-column #login-box #login-form {
+            padding: 20px; 
+            padding-top: 80px; 
+        }
+        #login .container #login-row #login-column #login-box #login-form #register-link {
+            margin-top: -85px;
+        }
+
+        .col-md-12{
+        max-width: none;
+        }
+        .regist_link{
+            margin-left:0px;
+            position: relative;
+            margin-bottom: 250px;
+            font-size: 140%;
+
+        }
+        .container{
+            margin: none;
+            max-width: none;
+        }
+        .text_1{
+            margin-top: 20px;
+        }
+        .text_2{
+            margin-top: 40px;
+            width: 600px;
+        }
+        .button_r {
+            position: relative;
+            top: 100px;
+            left: 400px;
+            width: 200px;
+            height: 50px;
+            border-radius: 40px;
+            color: black;
+            border: 3px solid;
+        }
+    </style>
+</head>
+<body>
+    <div id="login">
+        <h3 class="text-center text-white pt-5">Login form</h3>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" action="user_login" method="POST">
+                            {% csrf_token %}
+                            <h3 class="text-center text-info">Login</h3>
+                            <div class="form-group">
+                                <label for="username" class="text-info">Username:</label><br>
+                                <input type="text" name="email" id="username" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Password:</label><br>
+                                <input type="text" name="password" id="password" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+                                <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                                {% if messages %}
+                                <ul class="messages">    
+                                    {% for message in messages %}    
+                                        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="regist_link">
+                    <h2 class="text-left text-info">Don't have account yet?Regist</h2>
+                    <h5 class="text_1">If you are with us for the first time, we encourage you to set up a new account.</h5>
+                    <h5 class="text_2">If you have registered in one of our stores, you can use this data to log in to any of our stores.</h5>
+                    <form action="/regist">
+                        <button class="button_r btn-outline-dark">Regist</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}
