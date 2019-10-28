@@ -44,7 +44,6 @@ def user_login(request):
     print("im at the user login in views")
     if request.method == "POST":
         errors = User.objects.login_validator(request.POST)
-        print(errors, "*"*80)
         if len(errors)>0:
             for key, value in errors.items():
                 messages.error(request, value)
