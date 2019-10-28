@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block title %}Cart{% endblock %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+{% block content %}
+    <div class="container mb-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col"> </th>
+                                <th scope="col">Product</th>
+                                <th scope="col">Available</th>
+                                <th scope="col" class="text-center">Quantity</th>
+                                <th scope="col" class="text-right">Price</th>
+                        
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in cart_items%}
+                                <style>
+                                    input[type=checkbox] {
+                                    display: none;
+                                    }
+                                    .container img {
+
+                                    transition: transform 0.90s ease;
+                                    cursor: zoom-in;
+                                    }
+                                    input[type=checkbox]:checked ~ label > img {
+                                    transform: scale(2);
+                                    cursor: zoom-out;
+                                    }
+                                </style>
+                                <tr>
+
+                                    <td>
+                                        <input type="checkbox" id="zoomCheck">
+                                        <label for="zoomCheck">
+                                            <img class = "card-img-top" src="{{ item.sneaker_image.url }}" /> 
+                                        </label>
+                                    </td>
+                                    <td>{{  item.name}}</td>
+                                    <td class="text-right">{{ item.price }} €</td>
+                                    <td>Nothing Yet</td>
+                                    <td>Nothing yet</td>
+                                </tr>
+                            {% endfor %}
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>Sub-Total</td>
+                                <td class="text-right">{{ total_price }} €</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>Shipping</td>
+                                <td class="text-right">0,00 €</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><strong>Total</strong></td>
+                                <td class="text-right"><strong>{{ total_price }} €</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col mb-2">
+                <div class="row">
+                    <div class="col-sm-12  col-md-6">
+                        <a href="{% url 'catalog' %}" class="btn btn-success btn-block">
+                            Continue shopping
+                        </a>
+                    </div>
+                    <div class="col-sm-12 col-md-6 text-right">
+                        <a href="{% url 'checkout' %}" class="btn btn-success btn-block">
+                            Checkout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
