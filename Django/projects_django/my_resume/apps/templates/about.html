@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% include 'nav.html' %}
+{% block content %}
+{% load static %}
+    <head>
+        <link rel="stylesheet" href="{% static 'apps/css/about.css' %}">
+        <style>
+        div.main{
+            background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("{% static 'apps/img/about.jpg' %}");
+            background-repeat: repeat-y;
+            animation:fadeIn 2s;
+        }
+        body{
+        background-color: #191919;
+        }
+        </style>
+    </head>
+    <body>
+        <form action="/contact">
+            <div class="main">
+                <h1 class = "title">My Passions & Personality</h1>
+                <button class = "hire_me_b">HIRE ME TODAY</button>
+            </div>
+        </form> 
+    </body>
+{% endblock%}

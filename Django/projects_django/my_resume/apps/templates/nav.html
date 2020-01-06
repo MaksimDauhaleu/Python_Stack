@@ -1,0 +1,47 @@
+{% load static %}
+<head>
+       <link rel="stylesheet" href="{% static 'apps/css/nav.css' %}">
+</head>
+<body>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top" id="banner">
+                <div class="container">
+                        <a id = 'img1' class="navbar-brand" href="/"><span><img src="{% static 'apps/img/res.png' %}"  alt="Oppps"></span></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                             <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/portfolio">Portfolio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">About</a>
+                        </li>
+                         <li class="nav-item">
+                               <a class="nav-link" href="/resume">Resume</a>
+                          </li>
+                          <li class="nav-item">
+                               <a class="nav-link">|</a>
+                          </li>
+                          <li id = "one" class="nav-item">
+                               <a class="nav-link" href="/contact">Contact</a>
+                          </li>
+                    </ul>
+                </div>
+                </div>
+            </nav>
+
+            <script>
+                $(document).on("scroll", function(){
+                    if
+                    ($(document).scrollTop() > 86){
+                        $("#banner").addClass("shrink");
+                    }
+                    else
+                    {
+                        $("#banner").removeClass("shrink");
+                    }
+                });
+            </script>
+</body>

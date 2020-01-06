@@ -1,0 +1,217 @@
+#links{
+    margin-left:60%;
+}
+a{
+    font-size:140%;
+    color:black;
+}
+#a-color{
+color:black;
+}
+#black{
+    background-color: black;
+}
+@import url('https://fonts.googleapis.com/css?family=Gothic+A1|Kaushan+Script|Libre+Baskerville|Lobster');
+.body{
+font-family: 'Gothic A1', sans-serif;
+font-size:16px;
+}
+p{
+color:#6c6c6f;
+font-size:1em;
+}
+h1,h2,h3,h4,h5,h6{color:black;margin:auto;text-transform:none;margin-bottom:-5px;margin-right:25px;}.navbar-brand  span{
+font-size:25px;font-weight:700;letter-spacing:0.1em;
+font-family: Candara;
+}
+.navbar-brand {
+color: #fff;
+font-size:25px;
+font-family: 'Kaushan Script','Helvetica Neue',Helvetica,Arial,cursive;
+font-weight:700;
+letter-spacing:0.1em;
+}
+
+.navbar-nav .nav-item .nav-link{
+padding: 1.1em 1em!important;
+font-size: 120%;
+font-weight: 500;
+letter-spacing: 1px;
+color: #fff;
+font-family: fangsong;
+animation:fadeIn 3s;
+}
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+from {opacity: 0;} 
+to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+from {opacity: 0;}
+to {opacity:1 ;}
+}
+.navbar-nav .nav-item .nav-link:hover{color:#fed136;}
+.navbar-expand-md .navbar-nav .dropdown-menu{
+border-top:3px solid #fed136;
+}
+.dropdown-item:hover{background-color:#fed136;color:#fff;}
+nav{-webkit-transition: padding-top .3s,padding-bottom .3s;
+-moz-transition: padding-top .3s,padding-bottom .3s;
+transition: padding-top .3s,padding-bottom .3s;
+border: none;
+}
+
+.shrink {
+padding-top: 0;
+padding-bottom: 0;
+background-color: rgba(0,0,0,0.7);
+   -webkit-transition: background-color 1000ms linear;
+   -ms-transition: background-color 1000ms linear;
+   transition: background-color 1000ms linear;
+}
+.banner{
+background-image:url('http://www.hd-freewallpapers.com/latest-wallpapers/abstract-website-backgrounds.jpg');
+text-align: center;
+color: #fff;
+
+background-repeat: no-repeat;
+background-attachment: scroll;
+background-position: center center;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+.banner-text{
+padding:200px 0 150px 0;
+}
+.banner-heading{
+font-family: 'Lobster', cursive;
+font-size: 75px;
+font-weight: 700;
+line-height: 100px;
+margin-bottom: 30px;
+color:#fff;
+}
+.banner-sub-heading{
+font-family: 'Libre Baskerville', serif;
+font-size: 30px;
+font-weight: 300;
+line-height: 30px;
+margin-bottom: 50px;
+color:#fff;
+}
+
+.btn-banner{
+padding:5px 20px;
+border-radius:10px;
+font-weight:700;
+line-height:1.5;
+text-align:center;
+color:#fff;
+text-transform:uppercase;
+}
+.text-intro{
+width:90%;
+margin:auto;
+text-align:center;
+padding-top:30px;
+}
+
+
+/* mobile view */
+@media (max-width:500px)
+{
+.navbar-nav{
+    background-color:#000;
+    border-top:3px solid #fed136;
+    color:#fff;
+    z-index:1;
+    margin-top:5px;
+    }
+.navbar-nav .nav-item .nav-link{
+padding: 0.7em 1em!important;
+font-size: 100%;
+font-weight: 500;
+}
+.banner-text{
+padding:150px 0 150px 0;
+}
+.banner-heading{
+font-size: 30px;
+line-height: 30px;
+margin-bottom: 20px;
+}
+.banner-sub-heading{
+font-size: 10px;
+font-weight: 200;
+line-height: 10px;
+margin-bottom: 40px;
+}
+
+}
+
+@media (max-width:768px){
+.banner-text{
+padding:150px 0 150px 0;
+}
+.banner-sub-heading{
+font-size: 23px;
+font-weight: 200;
+line-height: 23px;
+margin-bottom: 40px;
+}
+}
+.search{
+padding-top:100px;
+font-family: 'Times New Roman', Times, serif;
+display:inline-block;
+width:45%;
+}
+#h1{
+color:black;
+text-transform: none;
+}
+.form-control{
+width:55%;
+border-radius:20px;
+border:none;
+text-align:center;
+font-family: 'Times New Roman', Times, serif;
+}
+.image{
+width:60%;
+height:60%;
+border-radius:5px;
+}
+#sp{
+padding-bottom: 30px;
+
+}
+#s{
+margin-top: 20px;
+}
+
+.most_pop{
+width:100%;
+height:13%; 
+margin-top:20px;
+}
+font{
+color:#8086A0;
+}
+.sons_name{
+display:inline-block;
+
+}
+.position{
+display:inline-block;
+}
+video{
+border-radius:5px;
+}
+#img1{
+margin-right: 410px;
+animation:fadeIn 3s;
+}
