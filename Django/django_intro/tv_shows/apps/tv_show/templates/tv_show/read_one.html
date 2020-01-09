@@ -2,12 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Read_One</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Read One</title>
     <style>
-        .jumbotron{
-            padding-bottom:50px; 
+        *{
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .text{
+            width: 50%;
+            margin-left: 330px;
+            text-align: left;
         }
     
     </style>
@@ -16,13 +20,15 @@
     <div class="container" align = "center">
         <a href="/"> Go back</a>
         <h1>TV Show {{ read.id }}</h1>
-        <div class="jumbotron">
-            <h2>Title: {{ read.title }} </h2>
-            <h2>Release Date: June 2018</h2>
-            <h2>Description: {{ read.desc }}</h2>
-            <h2>Last Udated: {{ read.updated_at }}</h2>
-            <a href='{{read.id}}/edit'>Edit</a>
-            <a href='{{read.id}}/destroy'>Delete</a>
+        <div class="card">
+            <div class="text" align = "center">
+                <h2>Title: {{ read.title }} </h2>
+                <h2>Release Date: June 2018</h2>
+                <h2>Description: {{ read.desc }}</h2>
+                <h2>Last Udated: {{ read.updated_at }}</h2>
+                <a href='{{read.id}}/edit'>Edit</a>
+                <a href='{{read.id}}/destroy'>Delete</a>
+            </div> 
         </div>
     </div>
 </body>

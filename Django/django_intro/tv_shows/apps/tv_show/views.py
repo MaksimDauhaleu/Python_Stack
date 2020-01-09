@@ -41,7 +41,7 @@ def update(request, id):
             messages.success(request, "Blog successfully updated")
             
             return redirect('/')
-    else:
+
 
 
 def read(request, id):
