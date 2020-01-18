@@ -82,7 +82,7 @@ div.main{
     margin-top: 50px;
     margin-left:10%;
     background: none;
-    color:#fff;
+    color:#141414;
     border: 1px solid #E1A87A;
     width: 15%;
     height: 7%;
@@ -96,6 +96,7 @@ div.main{
 .hire_me_b_b:hover{
     background:#141414;
     border: 1px solid #141414;
+    color:#E1A87A;
 }
 
 .projects{
@@ -125,7 +126,6 @@ p{
     top:50px;
 }
 #ch{
-    color:#141414;
     margin-left: 42.5%;
     height: 6%;
 }

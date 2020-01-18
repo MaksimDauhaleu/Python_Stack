@@ -16,7 +16,6 @@ def random_number(request):
         return render(request, "random_app/random.html", context)
 
 def my_name(request):
-        
     context = {
         "name" : request.POST["text1"]
     }
@@ -26,5 +25,3 @@ def my_name(request):
 def reset(request):
     request.session.clear()
     return redirect("/")
-
-c
