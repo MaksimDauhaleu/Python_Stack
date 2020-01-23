@@ -121,7 +121,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = ''
-STATICFILES_DIRS = ('/Users/owner/Desktop/Projects/Python_stack/Django/projects_django/untitled folder/catalog/static'),
+STATICFILES_DIRS = ('/Users/maksimdauhaleu/Desktop/Projects/Python_stack/Django/projects_django/untitled folder/catalog/static'),
 
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

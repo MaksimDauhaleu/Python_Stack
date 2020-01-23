@@ -70,7 +70,11 @@
     }
     .panel-group .panel+.panel {
      margin-top: 2px;
-}
+    }
+    .card{
+        border: none;
+    }
+
 </style>
 <div class="cont0">
     <div class="row-left">
@@ -219,7 +223,6 @@
                                 </div>
                             </div>
                         {% endfor %}
-
                     {% endif %}
                 </div>
             </div>
@@ -231,26 +234,23 @@
     var inputMin=document.getElementById("min");
     var inputMax=document.getElementById("max");
 
-    ///value updation from input to slider
-    //function input update to slider
-    function sliderLeftInput(){//input udate slider left
+
+    function sliderLeftInput(){
         sliderLeft.value=inputMin.value;
     }
-    function sliderRightInput(){//input update slider right
-        sliderRight.value=(inputMax.value);//chnage in input max updated in slider right
+    function sliderRightInput(){
+        sliderRight.value=(inputMax.value);
     }
 
-    //calling function on change of inputs to update in slider
+
     inputMin.addEventListener("change",sliderLeftInput);
     inputMax.addEventListener("change",sliderRightInput);
 
 
-    ///value updation from slider to input
-    //functions to update from slider to inputs 
-    function inputMinSliderLeft(){//slider update inputs
+    function inputMinSliderLeft(){
         inputMin.value=sliderLeft.value;
     }
-    function inputMaxSliderRight(){//slider update inputs
+    function inputMaxSliderRight(){
         inputMax.value=sliderRight.value;
     }
     sliderLeft.addEventListener("change",inputMinSliderLeft);
