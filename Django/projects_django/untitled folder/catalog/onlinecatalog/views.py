@@ -71,7 +71,6 @@ def regist_process(request):
                 messages.error(request, value)
             return redirect('/regist')
         else:
-           # User.objects.create(full_name = request.POST['full_name'], email= request.POST['email'], dof= request.POST['dof'], phone_number= request.POST['phone_number'], password= request.POST['password'], password_conf= request.POST['password_conf'])
             full_name = request.POST['full_name']
             email = request.POST['email']
             password = request.POST['password']
@@ -95,9 +94,9 @@ def price_range(request):
     keds = Sneaker.objects.all()
     rigth_keds = []
     for ked in keds:
-        if ked.price > int(first) and ked.price < int(second):
-            more_first = ked
-            rigth_keds.append(more_first)
+        if ked.price >= int(first) and ked.price <= int(second):
+            item = ked
+            rigth_keds.append(item)
 
 
     context = {
@@ -110,7 +109,6 @@ def add_to_cart(request, sneaker_id):
     sessions = Session.objects.all()
     for session in sessions:
         print(session)
-
     try:
         the_id = request.session["cart_id"]
     except:

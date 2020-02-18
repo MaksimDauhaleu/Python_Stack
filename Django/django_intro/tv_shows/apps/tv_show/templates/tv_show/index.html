@@ -11,27 +11,27 @@
     *{
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     }
-    body{
-        background-color: #4C5257;
-    }
     .container{
-        background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("{% static 'tv_show/images/1.jpg' %}");
+        width: 810px;
         height: 1000px;
         font-weight: bolder;
-        color: white;
+        color: black;
     }
     .table{
-        color:white;
+        color: black;
+        overflow: scroll;
+        height:200px;
     }
     a{
-        color: white;
+        color: black;
     }
     a:hover{
-        color: #35261C;
+        color: black;
         text-decoration: none;
     }
     .a-link{
         margin-right:20px;
+        color: gray;
     }
     .col-names{
         color:#B7B7B7;
@@ -40,7 +40,6 @@
 </head>
 <body>
     <div class="container" align='center'>
-            <div>
                 <h1>TV Shows</h1>
                 <table class='table'>
                     <thead class="thead">
@@ -69,7 +68,6 @@
                     {% endfor %}
                     </tbody>
                 </table>
-            </div>
                 <a href="/show"><input type="button" class="btn btn-secondary"  value="Create a Show"></a>
     </div>
 </body>

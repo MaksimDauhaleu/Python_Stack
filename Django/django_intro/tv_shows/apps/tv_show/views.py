@@ -34,12 +34,11 @@ def update(request, id):
 
         else:
             fix_show = Show.objects.get(id = id)
-            fix_show.name = request.POST['title']
-            fix_show.desc = request.POST['network']
+            fix_show.title = request.POST['title']
+            fix_show.network = request.POST['network']
             fix_show.desc = request.POST['desc']
             fix_show.save()
             messages.success(request, "Blog successfully updated")
-            
             return redirect('/')
 
 

@@ -10,5 +10,4 @@ urlpatterns = [
     url(r'^show/(?P<id>\d+)/edit$', views.edit),
     url(r'^(?P<id>\d+)/destroy$', views.delete),
     url(r'^show/(?P<id>\d+)/destroy$', views.delete),
-    
 ]
