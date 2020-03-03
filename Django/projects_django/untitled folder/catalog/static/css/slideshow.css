@@ -2,15 +2,14 @@
     height: 600px;
 }
 .po{
-    width: 74%;
+    width: 70%;
     margin-bottom: 100px;
     display:inline-block;
 }
 .po2{
-    width: 26.3%;
+    width: 29.7%;
     margin-bottom: 100px;
     display:inline-block;
-    margin-left: -10px;
 }
 #r{
     height: 300px;

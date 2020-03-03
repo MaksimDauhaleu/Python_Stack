@@ -56,6 +56,8 @@ def user_login(request):
         if len(errors)>0:
             for key, value in errors.items():
                 messages.error(request, value)
+            a = postData['password']
+            print(a,"*********")
             return redirect('/login')
         else: 
             user = User.objects.get(email = request.POST['email'])
