@@ -7,3 +7,6 @@ def page(request):
     #     "library" : Book.objects.all(),
     # }
     return render(request, 'marketFirst/index.html')
+
+def login(request):
+    return render(request, 'marketFirst/login.html')

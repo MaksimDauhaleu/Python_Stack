@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <title>Menu</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"><title>Menu</title>
     <style>
         *{
             font-family: monospace;
@@ -12,13 +11,14 @@
         #header{
             width: 100%;
             height: 20%;
-            border-bottom: 0.5px solid #F0F0F0;
+            border-bottom: 1px solid #F0F0F0;
         }
         body{
             margin:0;
         }
         .headTools{
             display: inline-block;
+            font-family: 'Times New Roman', Times, serif;
             margin: 20px;
             margin-left: 10%;
             font-size: large;
@@ -29,6 +29,76 @@
             height: 10%;
             margin: 3%;
         }
+        .dropdownButton{
+            width: 90%;
+            height: 50px;
+            font-weight: bolder;
+            font-size: x-large;
+            margin-top:5%;
+            margin-left:5%;
+            border-top: 1px solid #F0F0F0;
+            padding: 7px;
+        }
+        hr{
+            width: 100%;
+            border-top: 7px solid #F0F0F0;
+            margin: 0;
+        }
+        .cattegoriesH6{
+            margin-bottom: 0;
+            font-size: medium;
+            font-weight: 550;
+            letter-spacing: -0.5px;
+            display: inline-block;
+        }
+        #cattegoriesSvg{
+            width: 15px;
+            height: 14px;
+            margin: 0;
+            margin-left: 65%;
+
+        }
+        #li{
+            border-top:0px;
+            border-right: none;
+            border-left: none;
+            height: auto;
+            margin-top:0px;
+            margin-bottom:3px;
+            padding: 0;
+        }
+        #li:hover{
+            
+        }
+        ul{
+            margin: 5%;
+            border-right: none;
+        }
+        .li_h3{
+            font-size: 1.2rem;
+            margin-bottom: 2px;
+        }
+        .li_p{
+            font-size: x-small;
+            color: gray;
+            margin-bottom: 4px;
+        }
+        .li_h6{
+            font-size: x-small;
+            color: gray;
+        }
+        #cater_ul{
+            margin-top: 2%;
+        }
+        #cater_title{
+            font-size: xx-large;
+            border-bottom: 3px solid black;
+            width: 34%;
+        }
+        .dropdown-item{
+            border-bottom: 1px solid #F0F0F0;
+        }
+
     </style>
 </head>
 <body>
@@ -41,7 +111,176 @@
 
 
 
+    <div class="dropdownButton" data-toggle="collapse" data-target=".multi-collapse"  aria-controls="multiCollapseExample1 multiCollapseExample2">
+        <h6 class = "cattegoriesH6">
+            Categories
+        </h6>
+        <svg id = "cattegoriesSvg"  class="bi bi-chevron-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+        </svg>
 
+    </div>
+    <div class="row" align = "left">
+        <div class="col">
+            <div class="collapse multi-collapse" id="multiCollapseExample1">
+                <div class="dropdown-item">
+                    Burgers
+                </div>
+                <div class="dropdown-item">
+                    Sandwiches
+                </div>
+                <div class="dropdown-item">
+                    Pizzas
+                </div>
+                <div class="dropdown-item">
+                    Pizzas
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+    <ul class="list-group" id = "cater_ul">
+        <div id = "cater_title_div" >
+            <h2  id = "cater_title">Burgers</h2>
+        </div>
+        <li id = "li" class="list-group-item">
+            <h3 class = "li_h3">
+                Double Double
+            </h3>
+            <p class = "li_p">
+                Because everyone has a little bit of basic in them.Our classic cheddar-jack blend with a pinch of our secret souce..
+            </p>
+            <h6 class = "li_h6">
+                $9.99
+            </h6>
+        </li>
+        <li id = "li" class="list-group-item">
+            <h3 class = "li_h3">
+                Cheeseburger
+            </h3>
+            <p class = "li_p">
+                Because everyone has a little bit of basic in them.Our classic cheddar-jack blend with a pinch of our secret souce..
+            </p>
+            <h6 class = "li_h6">
+                $6.99
+            </h6>
+        </li>
+        <li id = "li" class="list-group-item">
+            <h3 class = "li_h3">
+                Cheeseburger
+            </h3>
+            <p class = "li_p">
+                Because everyone has a little bit of basic in them.Our classic cheddar-jack blend with a pinch of our secret souce..
+            </p>
+            <h6 class = "li_h6">
+                $6.99
+            </h6>
+        </li>
+        <li id = "li" class="list-group-item">
+            <h3 class = "li_h3">
+                Cheeseburger
+            </h3>
+            <p class = "li_p">
+                Because everyone has a little bit of basic in them.Our classic cheddar-jack blend with a pinch of our secret souce..
+            </p>
+            <h6 class = "li_h6">
+                $6.99
+            </h6>
+        </li>
+        <li id = "li" class="list-group-item">
+            <h3 class = "li_h3">
+                Bacon Cheese
+            </h3>
+            <p class = "li_p">
+                Because everyone has a little bit of basic in them.Our classic cheddar-jack blend with a pinch of our secret souce..
+            </p>
+            <h6 class = "li_h6">
+                $7.99
+            </h6>
+        </li>
+    </ul>
+    <br>
+    <br>
+    <ul class="list-group" id = "cater_ul">
+        <div id = "cater_title_div" >
+            <h2  id = "cater_title">Sandwiches</h2>
+        </div>
+        <li id = "li" class="list-group-item">
+            <h3 class = "li_h3">
+                Double Double
+            </h3>
+            <p class = "li_p">
+                Because everyone has a little bit of basic in them.Our classic cheddar-jack blend with a pinch of our secret souce..
+            </p>
+            <h6 class = "li_h6">
+                $9.99
+            </h6>
+        </li>
+        <li id = "li" class="list-group-item">
+            <h3 class = "li_h3">
+                Cheeseburger
+            </h3>
+            <p class = "li_p">
+                Because everyone has a little bit of basic in them.Our classic cheddar-jack blend with a pinch of our secret souce..
+            </p>
+            <h6 class = "li_h6">
+                $6.99
+            </h6>
+        </li>
+        <li id = "li" class="list-group-item">
+            <h3 class = "li_h3">
+                Bacon Cheese
+            </h3>
+            <p class = "li_p">
+                Because everyone has a little bit of basic in them.Our classic cheddar-jack blend with a pinch of our secret souce..
+            </p>
+            <h6 class = "li_h6">
+                $7.99
+            </h6>
+        </li>
+    </ul>
+    <br>
+    <br>
+
+    <ul class="list-group" id = "cater_ul">
+        <div id = "cater_title_div" >
+            <h2  id = "cater_title">Pizzas</h2>
+        </div>
+        <li id = "li" class="list-group-item">
+            <h3 class = "li_h3">
+                Double Double
+            </h3>
+            <p class = "li_p">
+                Because everyone has a little bit of basic in them.Our classic cheddar-jack blend with a pinch of our secret souce..
+            </p>
+            <h6 class = "li_h6">
+                $9.99
+            </h6>
+        </li>
+        <li id = "li" class="list-group-item">
+            <h3 class = "li_h3">
+                Cheeseburger
+            </h3>
+            <p class = "li_p">
+                Because everyone has a little bit of basic in them.Our classic cheddar-jack blend with a pinch of our secret souce..
+            </p>
+            <h6 class = "li_h6">
+                $6.99
+            </h6>
+        </li>
+        <li id = "li" class="list-group-item">
+            <h3 class = "li_h3">
+                Bacon Cheese
+            </h3>
+            <p class = "li_p">
+                Because everyone has a little bit of basic in them.Our classic cheddar-jack blend with a pinch of our secret souce..
+            </p>
+            <h6 class = "li_h6">
+                $7.99
+            </h6>
+        </li>
+    </ul>
 
 
 
@@ -52,4 +291,9 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
+<script>
+    $(document).ready(function() {
+    console.log( "ready!" );
+});
+</script>
 </html>
